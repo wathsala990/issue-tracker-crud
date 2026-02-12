@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import DefaultInput from '../../component/Form/DefaultInput'
 import DefaultButton from '../../component/Buttons/DefaultButton'
 import { useNavigate } from 'react-router-dom'
