@@ -1,4 +1,4 @@
-# 🐞 Issue Tracker Backend (Passwordless MERN API)
+# 🐞 Issue Tracker  (Passwordless MERN API)
 
 This project is a secure Issue Tracker backend built with Node.js, Express, MongoDB, and JWT, using a password-less authentication system (OTP via Email) and role-based access control (RBAC).
 
@@ -324,3 +324,28 @@ router.put(
 - Suitable for MERN / Backend assignments
 
 
+---
+
+## 🏃‍♂️ Step-by-Step Instructions to Run the Project
+
+### Step 1: Database Preparation
+Before running the code, ensure your database is active. Based on your `server/config/DB.js` file, ensure your connection string in the `.env` file matches your local or cloud database instance.
+
+### Step 2: Server Initialization
+The server is the "brain" of your app. 
+1. Open a terminal in the `server` folder.
+2. Run `npm install` to download Express, JWT, and database drivers.
+3. Run `npm run dev` (or `node server.js`). You should see a log message confirming the database is connected.
+
+### Step 3: Frontend Initialization
+1. Open a **second** terminal in the `client` folder.
+2. Run `npm install` to get React and Vite dependencies.
+3. Run `npm run dev`. This will provide a local URL (usually `http://localhost:5173`).
+
+### Step 4: Verification
+1. Open the browser to the provided URL.
+2. Test the **Registration** flow first to populate the `users` collection.
+3. Log in to receive your **JWT token**, which allows the `api.js` service to communicate with protected routes.
+
+
+ 
