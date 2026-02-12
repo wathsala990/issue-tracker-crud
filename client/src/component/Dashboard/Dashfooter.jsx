@@ -7,17 +7,7 @@ const DashFooter = () => {
                 <p>
                     &copy; {new Date().getFullYear()} The Dashboard.
                 </p>
-                {/* <p className="mt-2 sm:mt-0">
-                    Developed & Engineered by{" "}
-                    <a
-                        href="http://blackalphalabs.com/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-blue-600 font-semibold hover:underline transition"
-                    >
-                        blackalphalabs
-                    </a>
-                </p> */}
+                
             </div>
         </footer>
     )

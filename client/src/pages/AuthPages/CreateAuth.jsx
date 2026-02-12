@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import Toast from '../../component/Toast/Toast'
 import useForm from '../../hooks/useForm'
 import API from '../../services/api'
-import logo from '../../assets/travel-login.png'
+import logo from '../../assets/issue-tracker_login.png'
 
 const CreateAuth = () => {
     const navigate = useNavigate();

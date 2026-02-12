@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 import defultImg from "../../assets/user.png";
-import uoplogo from "../../assets/logo.png";
+import uoplogo from "../../assets/tracker.png";
 import dashboardbg from "../../assets/siteimg.jpg";
 import API from "../../services/api";
 import { useAuth } from "../../context/AuthContext";
@@ -12,17 +12,14 @@ import {
 } from "react-icons/bi";
 import { FaCog, FaUser, FaFolderOpen, FaTools, FaBullseye, FaRobot, FaGithub, FaHandsHelping, FaUsersCog } from "react-icons/fa";
 import { MdLogout, MdArticle } from "react-icons/md";
-import { motion } from "framer-motion";
 import { ChevronDown, ChevronRight } from "lucide-react";
 import "./DashSide.css";
 
 
 const DashSide = ({ closeSidebar }) => {
-    const { auth, logout } = useAuth();
-    const navigate = useNavigate();
-    const [collapsed, setCollapsed] = useState(false);
+    const { auth } = useAuth();
+    const [collapsed] = useState(false);
     const [openMenu, setOpenMenu] = useState(null);
-    const token = localStorage.getItem("token");
 
     const toggleSubmenu = (index) => {
         setOpenMenu(openMenu === index ? null : index);
@@ -64,30 +61,24 @@ const DashSide = ({ closeSidebar }) => {
 
 
     return (
-        <motion.aside
-            initial={{ width: 300, opacity: 0 }}
-            animate={{ width: collapsed ? 96 : 280, opacity: 1 }}
-            transition={{ duration: 0.4, ease: "easeInOut" }}
+        <aside
             className="relative h-screen flex flex-col bg-gradient-to-b from-white to-white overflow-hidden"
         >
             <div className="flex-1 overflow-y-auto custom-scrollbar">
 
                 {/* Logo */}
                 <div className="flex items-center pb-4 pt-5 sticky top-0 bg-gradient-to-b from-white to-white z-10">
-                    <motion.img
+                    <img
                         src={uoplogo}
                         alt="Logo"
                         className="h-10 w-auto ml-4 bg-gradient-to-r from-emerald-400 to-cyan-400 p-2 rounded-lg"
-                        whileHover={{ scale: 1.1, rotate: 3 }}
                     />
                     {!collapsed && (
-                        <motion.h1
-                            initial={{ opacity: 0, y: 5 }}
-                            animate={{ opacity: 1, y: 0 }}
+                        <h1
                             className="ml-2 font-bold text-lg text-emerald-700"
                         >
                             Issue Tracker
-                        </motion.h1>
+                        </h1>
                     )}
                 </div>
 
@@ -109,20 +100,17 @@ const DashSide = ({ closeSidebar }) => {
                                             }`}
                                     >
                                         <div className="flex items-center gap-3">
-                                            <motion.span
-                                                whileHover={{ scale: 1.15, rotate: 4 }}
+                                            <span
                                                 className="text-xs"
                                             >
                                                 {item.icon}
-                                            </motion.span>
+                                            </span>
                                             {!collapsed && (
-                                                <motion.span
-                                                    initial={{ opacity: 0, x: -10 }}
-                                                    animate={{ opacity: 1, x: 0 }}
+                                                <span
                                                     className="text-sm tracking-wide"
                                                 >
                                                     {item.name}
-                                                </motion.span>
+                                                </span>
                                             )}
                                         </div>
 
@@ -136,10 +124,7 @@ const DashSide = ({ closeSidebar }) => {
                                     </button>
 
                                     {!collapsed && openMenu === index && (
-                                        <motion.div
-                                            initial={{ opacity: 0, height: 0 }}
-                                            animate={{ opacity: 1, height: "auto" }}
-                                            transition={{ duration: 0.3 }}
+                                        <div
                                             className="ml-8 mt-1 space-y-1"
                                         >
                                             {item.submenu.map((sub, subIndex) => (
@@ -157,7 +142,7 @@ const DashSide = ({ closeSidebar }) => {
                                                     {sub.name}
                                                 </NavLink>
                                             ))}
-                                        </motion.div>
+                                        </div>
                                     )}
                                 </>
                             ) : (
@@ -171,20 +156,17 @@ const DashSide = ({ closeSidebar }) => {
                                         }`
                                     }
                                 >
-                                    <motion.span
-                                        whileHover={{ scale: 1.2, rotate: 5 }}
+                                    <span
                                         className="text-xs"
                                     >
                                         {item.icon}
-                                    </motion.span>
+                                    </span>
                                     {!collapsed && (
-                                        <motion.span
-                                            initial={{ opacity: 0, x: -10 }}
-                                            animate={{ opacity: 1, x: 0 }}
+                                        <span
                                             className="text-sm tracking-wide"
                                         >
                                             {item.name}
-                                        </motion.span>
+                                        </span>
                                     )}
                                 </NavLink>
                             )}
@@ -224,9 +206,7 @@ const DashSide = ({ closeSidebar }) => {
                 )}
 
                 {/* Footer */}
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
+                <div
                     className="p-3 text-center text-[10px] text-emerald-500 border-t border-emerald-100"
                 >
                     {!collapsed && (
@@ -236,9 +216,9 @@ const DashSide = ({ closeSidebar }) => {
 
                         </>
                     )}
-                </motion.div>
+                </div>
             </div>
-        </motion.aside>
+        </aside>
     );
 };
 
